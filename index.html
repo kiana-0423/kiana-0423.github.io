@@ -334,6 +334,26 @@
         line-height: 1.5;
       }
 
+      .visitor-counter {
+        margin-top: 2.5rem;
+        padding: 1.25rem 1.5rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        font-size: 0.95rem;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+      }
+
+      .visitor-counter strong {
+        font-size: 1.6rem;
+        letter-spacing: 0.05em;
+        color: var(--text);
+      }
+
       footer {
         margin-top: 3rem;
         display: flex;
@@ -488,6 +508,12 @@
         <img id="galleryModalImage" src="" alt="" />
       </div>
 
+      <div class="visitor-counter" aria-live="polite">
+        <span>访客数</span>
+        <strong id="visitorCount">--</strong>
+        <span>次访问</span>
+      </div>
+
       <footer>
         <span id="quote">今天也要保持好奇。</span>
         <span>© <span id="year"></span> Kiana</span>
@@ -562,6 +588,28 @@
             toggleGalleryModal(false);
           }
         });
+      }
+
+      const visitorCountEl = document.getElementById("visitorCount");
+      if (visitorCountEl && window.fetch) {
+        const counterEndpoint =
+          "https://api.countapi.xyz/hit/kiana-homepage/visits";
+        fetch(counterEndpoint)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to retrieve visitor count");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const value = Number(data.value ?? data.count);
+            visitorCountEl.textContent = Number.isFinite(value)
+              ? value.toLocaleString("zh-CN")
+              : "—";
+          })
+          .catch(() => {
+            visitorCountEl.textContent = "—";
+          });
       }
     </script>
   </body>
