@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zhaoyang Guo · Resume</title>
+    <style>
+      :root {
+        --ink: #111321;
+        --muted: #4c5672;
+        --border: #e1e4ef;
+        --accent: #3452ff;
+        --bg: #f7f9ff;
+        font-family: "Inter", "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: var(--ink);
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 2.5rem 1rem;
+        background: var(--bg);
+        display: flex;
+        justify-content: center;
+      }
+
+      main {
+        width: min(960px, 100%);
+        background: #fff;
+        border-radius: 18px;
+        padding: 2.75rem 3rem;
+        box-shadow: 0 30px 80px rgba(15, 24, 58, 0.12);
+      }
+
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 1.25rem;
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 2.6rem);
+        margin: 0;
+      }
+
+      .tagline {
+        margin: 0.25rem 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      section + section {
+        margin-top: 2rem;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.4rem;
+        margin-bottom: 1rem;
+      }
+
+      .item {
+        display: grid;
+        grid-template-columns: minmax(160px, 220px) 1fr;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .item:last-child {
+        border-bottom: none;
+      }
+
+      .item h3 {
+        margin: 0;
+      }
+
+      .item span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .item p {
+        margin: 0.4rem 0 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      ul {
+        margin: 0.6rem 0 0;
+        padding-left: 1.2rem;
+        color: var(--muted);
+      }
+
+      ul li + li {
+        margin-top: 0.35rem;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0;
+        list-style: none;
+      }
+
+      .pill-list li {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 0.35rem 0.85rem;
+        font-size: 0.9rem;
+      }
+
+      .columns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: #fdfefe;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.25rem;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+
+      .card h3 {
+        margin: 0 0 0.35rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .muted {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding: 2.25rem 1.5rem;
+        }
+        .item {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Zhaoyang Guo</h1>
+          <p class="tagline">
+            Direct-entry PhD Student · Physical Chemistry & Advanced Manufacturing
+          </p>
+        </div>
+        <div class="contact">
+          <span>Shanghai, China</span>
+          <span>Nagoya, Japan</span>
+          <span><a href="mailto:guozy@sari.ac.cn">School: guozy@sari.ac.cn</a></span>
+          <span><a href="mailto:huang1997c@gmail.com">Personal: huang1997c@gmail.com</a></span>
+          <span>CN: +86 188-1756-3523</span>
+          <span>JP: +81 070-9034-2085</span>
+          <span><a href="https://github.com/kiana-0423">Github</a></span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Education</h2>
+        <div class="item">
+          <div>
+            <h3>University of Chinese Academy of Sciences</h3>
+            <span>Direct-entry PhD<br></span>
+            <span>Sept 2021 – Present</span>
+          </div>
+          <div>
+            <p>
+              Shanghai Advanced Research Institute · Physical Chemistry (GPA 3.66/4.00).<br>
+              Studying numerical analysis, crystal chemistry, and advanced physical chemistry.
+            </p>
+            <ul>
+              <li>Primary direction: manufacturing process investigation via force-field development.</li>
+              <li>Combines experimental techniques with molecular simulation to improve material performance.</li>
+              <li>Current focus: lubricating material mechanisms for enhanced stability.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>East China University of Science and Technology</h3>
+            <span>B.Eng. Mechanical Engineering<br></span>
+            <span>Sept 2017 – Apr 2021</span>
+          </div>
+          <div>
+            <p>
+              School of Mechanical and Power Engineering · GPA 3.50/4.00.
+            </p>
+            <ul>
+              <li font style="line-height:1.5;">Zhangjiagang Scholarship recipient<br></li>
+              <li style="line-height:1.5;">Multiple university honors (2017‑2021).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Technologies</h2>
+        <div class="columns">
+          <div class="card">
+            <h3>Languages</h3>
+            <ul class="pill-list">
+              <li>Python</li>
+              <li>MATLAB</li>
+              <li>C</li>
+              <li>C++</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Software & Tools</h3>
+            <ul class="pill-list">
+              <li>AutoCAD</li>
+              <li>SolidWorks</li>
+              <li>VASP</li>
+              <li>LAMMPS</li>
+              <li>Gaussian</li>
+              <li>CP2K</li>
+              <li>ORCA</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Frameworks</h3>
+            <ul class="pill-list">
+              <li>Machine learning force-field</li>
+              <li>Coarse</li>
+              <li>Scikit-Learn</li>
+              <li>Pandas</li>
+              <li>NumPy</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Research Experience</h2>
+                <div class="item">
+          <div>
+            <h3>Aqueous Processing for Ni-Rich Cathode</h3>
+            <span>In Progress · ReaxFF / ML Optimizer</span>
+          </div>
+          <div>
+            <p>
+              Simulating water-based binder interactions with high-nickel cathodes to
+              evaluate interface reactions and accelerate FF parameter discovery.
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>Multifunctional Aqueous Binder</h3>
+            <span>Under Preparation · WAXS / XANES / DFT</span>
+          </div>
+          <div>
+            <p>
+              Developed a water-based binder improving conductivity, lattice protection,
+              and interfacial stability using in-situ characterization plus simulation.
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>Multi-Scale Aqueous Processing</h3>
+            <span>In Progress · CP2K → LAMMPS → COMSOL</span>
+          </div>
+          <div>
+            <p>
+              Bridging molecular to macro scales to correlate aqueous processing with
+              conductivity, structural stability, and manufacturing efficiency.
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>Polymer Networks via Molecular Dynamics</h3>
+            <span>Published · LAMMPS</span>
+          </div>
+          <div>
+            <p>
+              Simulated dynamic H-bond behavior and network morphology (MSD) to
+              understand polymer performance.
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>Oxygen Vacancies in DFT</h3>
+            <span>Published · VASP / CP2K</span>
+          </div>
+          <div>
+            <p>
+              Modeled partial charge density, energy bands, and density of states to
+              reveal the role of oxygen vacancies in functional materials.
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>Formulation Optimization with ML</h3>
+            <span>Published · Python</span>
+          </div>
+          <div>
+            <p>
+              Built XGBoost-based interpretable models with data augmentation to
+              optimize formulation parameters.
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>Molecular Functional Groups</h3>
+            <span>In Submission · Gaussian / LAMMPS</span>
+          </div>
+          <div>
+            <p>
+              Used hybrid functionals to derive HOMO-LUMO gaps, electrostatic potential surfaces,
+              and adsorption energies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Publications</h2>
+        <span><a href="https://scholar.google.com/citations?user=DG5T0vQAAAAJ&hl">Google Scholar</a></span>
+        <ul>
+
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <div class="item">
+          <div>
+            <h3>Micro-Expression Recognition Program</h3>
+            <span><a href="https://github.com/kiana-0423/micro_expression_recognition.git">GitHub Repository</a></span>
+          </div>
+          <div>
+            <p>
+              Built a system to capture fleeting micro-expressions for emotion understanding.
+            </p>
+            <ul>
+              <li>Leveraged OpenCV and a VGG-16 CNN backbone.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>Recycling System with Multi-Model Detection</h3>
+            <span>2018 – 2020</span>
+          </div>
+          <div>
+            <p>
+              Created a recycling platform integrating optical, thermal, and AI recognition for precise sorting.
+            </p>
+            <ul>
+              <li>Featured by Shanghai Television, Shanghai Morning Post, and other outlets.</li>
+              <li>Authored five related patents using Python, Ansys, microcontrollers, and SolidWorks.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Grants & Awards</h2>
+        <ul>
+              <li>Grand Prize · National College Artificial Intelligence Innovation Competition</li>
+              <li>First Prize · China University Mechanical Engineering Innovation & Creativity Competition</li>
+              <li>Second Prize · 9th National College Mechanical Innovation Design Competition</li>
+              <li>Third Prize · Robocon National College Robot Competition</li>
+              <li>Gold Award · National College Students Environmental Innovation Competition</li>
+              <li>Recipient of four provincial-level technology and innovation awards for interdisciplinary work in intelligent manufacturing and sustainability.</li>
+              <li>Earned eight university-level scholarships and honors recognizing academic excellence and research impact between 2017 and 2021.</li>
+      </ul>
+      </section>
+
+      <footer class="muted" style="margin-top: 2rem">
+        Last updated: <span id="year"></span>
+      </footer>
+    </main>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
