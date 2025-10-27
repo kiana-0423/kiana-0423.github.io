@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home · Kiana</title>
+    <meta
+      name="description"
+      content="Kiana 的个人主页，记录折腾、创作与灵感。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #05060f;
+        --bg-soft: rgba(12, 15, 32, 0.85);
+        --card: rgba(20, 25, 55, 0.15);
+        --text: #f4f6fb;
+        --muted: #a6b2d8;
+        --accent: #7a8ef8;
+        --accent-strong: #ffb4bc;
+        font-family: "Space Grotesk", "Noto Sans SC", system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(
+            rgba(5, 6, 15, 0.85),
+            rgba(5, 6, 15, 0.25)
+          ),
+          url("data/pic/IMG_1263.PNG") center / cover fixed no-repeat;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 1.5rem;
+        overflow-x: hidden;
+      }
+
+      main {
+        width: min(960px, 100%);
+        background: rgba(4, 6, 15, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 28px;
+        padding: 3rem;
+        position: relative;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 25px 60px rgba(2, 5, 12, 0.15);
+      }
+
+      .orb {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--accent-strong), transparent);
+        filter: blur(6px);
+        opacity: 0.7;
+        animation: float 12s ease-in-out infinite;
+        z-index: -1;
+      }
+      .orb-one {
+        top: -40px;
+        right: 80px;
+      }
+      .orb-two {
+        bottom: -60px;
+        left: 50px;
+        animation-delay: -4s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-18px);
+        }
+      }
+
+      .hero {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 180px;
+        height: 180px;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+        flex-shrink: 0;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hello {
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin: 0 0 0.5rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 5vw, 3rem);
+        line-height: 1.15;
+      }
+
+      .tagline {
+        font-size: 1.1rem;
+        color: var(--muted);
+        margin: 1rem 0 1.5rem;
+        min-height: 2.4rem;
+      }
+
+      .meta-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .meta-list li {
+        padding: 0.4rem 0.85rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+      }
+
+      .meta-list svg {
+        width: 16px;
+        height: 16px;
+        stroke: var(--accent);
+      }
+
+      .actions {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .actions a {
+        padding: 0.85rem 1.4rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.2s ease, background 0.2s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--text);
+      }
+
+      .actions a.primary {
+        background: linear-gradient(120deg, var(--accent), #5abdfd);
+        border: none;
+        box-shadow: 0 12px 25px rgba(92, 148, 255, 0.4);
+      }
+
+      .actions a:hover {
+        transform: translateY(-2px);
+      }
+
+      section {
+        margin-top: 3rem;
+      }
+
+      .section-title {
+        font-size: 1rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.9rem;
+        margin-top: 1.25rem;
+      }
+      .gallery-grid img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .gallery-grid img:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.45);
+      }
+      .gallery-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 6, 15, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 1000;
+      }
+      .gallery-modal.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .gallery-modal img {
+        max-width: min(90vw, 1080px);
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+      }
+      .gallery-modal button {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+        padding: 0.35rem 0.95rem;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        min-height: 160px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border: 1px solid transparent;
+        background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0.35),
+            transparent
+          )
+          border-box;
+        mask: linear-gradient(#0000, #0000), linear-gradient(#000, #000);
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      .card h3 {
+        margin-top: 0;
+        margin-bottom: 0.35rem;
+        font-size: 1.25rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .card strong {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--accent);
+        font-size: 1.5rem;
+      }
+
+      .ticker {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .ticker-card {
+        border-radius: 24px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .ticker-card h4 {
+        margin: 0 0 0.75rem;
+        color: var(--accent-strong);
+        letter-spacing: 0.2em;
+        font-weight: 600;
+      }
+
+      .ticker-card p {
+        margin: 0;
+        color: var(--text);
+        font-size: 1.05rem;
+        line-height: 1.5;
+      }
+
+      footer {
+        margin-top: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      footer span {
+        opacity: 0.75;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 2.25rem;
+        }
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+        .meta-list {
+          justify-content: center;
+        }
+        .actions {
+          justify-content: center;
+        }
+        .avatar {
+          width: 160px;
+          height: 160px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="orb orb-one"></span>
+      <span class="orb orb-two"></span>
+      <section class="hero">
+        <div class="avatar">
+          <img src="data/pic/icon.png" alt="Kiana" />
+        </div>
+        <div>
+          <p class="hello">Helllo，World</p>
+          <h1>Kiana-0423</h1>
+          <p class="tagline" id="typewriter" data-text="当一个故事要结束的时候，我们总是会想起它的开始，就像是一切回到了从前。">
+            当一个故事要结束的时候，我们总是会想起它的开始，就像是一切回到了从前。
+          </p>
+          <ul class="meta-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <path
+                  stroke="currentColor"
+                  d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM5.5 20.5a6.5 6.5 0 0 1 13 0"
+                />
+              </svg>
+              开发 & 设计
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <path
+                  stroke="currentColor"
+                  d="m3.5 18.5 8.5-13 8.5 13h-17Z"
+                />
+              </svg>
+              物理化学专业
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <path
+                  stroke="currentColor"
+                  d="M12 5v14M5 12h14"
+                />
+              </svg>
+              毕业努力中
+            </li>
+          </ul>
+          <div class="actions">
+            <a class="primary" href="resume.html" target="_blank"
+              >简历</a
+            >
+            <a class="primary" href="https://github.com/kiana-0423" target="_blank"
+              >GitHub</a
+            >
+            <a href="mailto:huang1997c@gmail.com">邮件联系</a>
+            <a href="www.linkedin.com/in/guozy" target="_blank">领英</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-title">Highlights</p>
+        <div class="cards">
+          <article class="card">
+            <h3>正在学习</h3>
+            <p>
+              搭建机器学习力场<br>
+              锂离子电池水工艺开发<br>
+            </p>
+            <strong>03 · Projects</strong>
+          </article>
+          <article class="card">
+            <h3>爱好</h3>
+            <p>摄影 / 摸鱼 / 米哈游</p>
+            <strong></strong>
+          </article>
+          <article class="card">
+            <h3>每日进度</h3>
+            <p>
+              <span id="clock">00:00:00</span><br />
+              <br />
+              保持思考，保持记录。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-title">Now</p>
+        <div class="ticker">
+          <article class="ticker-card">
+            <h4>学习</h4>
+            <p>
+              MLFF——将物理与数学结合，加速虚拟世界的最终钥匙！
+            </p>
+          </article>
+          <article class="ticker-card">
+            <h4>灵感</h4>
+            <p>
+              按下快门，用世界进行配色。
+            </p>
+          </article>
+          <article class="ticker-card">
+            <h4>下一步</h4>
+            <p>
+              顺利毕业！
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-title">Gallery</p>
+        <div class="gallery-grid">
+          <img src="data/pic/photo/1.JPG" alt="Gallery photo 1" loading="lazy" />
+          <img src="data/pic/photo/2.JPG" alt="Gallery photo 2" loading="lazy" />
+          <img src="data/pic/photo/3.JPG" alt="Gallery photo 3" loading="lazy" />
+          <img src="data/pic/photo/4.JPG" alt="Gallery photo 4" loading="lazy" />
+          <img src="data/pic/photo/5.JPG" alt="Gallery photo 5" loading="lazy" />
+          <img src="data/pic/photo/6.JPG" alt="Gallery photo 6" loading="lazy" />
+        </div>
+      </section>
+      <div class="gallery-modal" id="galleryModal" aria-hidden="true">
+        <button type="button" id="galleryModalClose">关闭</button>
+        <img id="galleryModalImage" src="" alt="" />
+      </div>
+
+      <footer>
+        <span id="quote">今天也要保持好奇。</span>
+        <span>© <span id="year"></span> Kiana</span>
+      </footer>
+    </main>
+
+    <script>
+      const text = document.getElementById("typewriter").dataset.text;
+      let idx = 0;
+      function type() {
+        const el = document.getElementById("typewriter");
+        el.textContent = text.slice(0, idx);
+        idx = idx === text.length ? 0 : idx + 1;
+      }
+      setInterval(type, 80);
+
+      const clockEl = document.getElementById("clock");
+      function tick() {
+        const now = new Date();
+        clockEl.textContent = now.toLocaleTimeString("zh-CN", {
+          hour12: false,
+        });
+      }
+      tick();
+      setInterval(tick, 1000);
+
+      const quotes = [
+        "把喜欢的事情做到极致，它自然会发光。",
+        "设计不是装饰，是让体验变得顺滑。",
+        "记录每一次重构，它会告诉你成长的方向。",
+        "简单的东西更难做好。",
+      ];
+      document.getElementById("quote").textContent =
+        quotes[Math.floor(Math.random() * quotes.length)];
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const galleryModal = document.getElementById("galleryModal");
+      const galleryModalImage = document.getElementById("galleryModalImage");
+      const galleryModalClose = document.getElementById("galleryModalClose");
+      if (galleryModal && galleryModalImage && galleryModalClose) {
+        const toggleGalleryModal = (isOpen) => {
+          galleryModal.classList.toggle("open", isOpen);
+          galleryModal.setAttribute("aria-hidden", String(!isOpen));
+          if (!isOpen) {
+            galleryModalImage.removeAttribute("src");
+            galleryModalImage.removeAttribute("alt");
+          }
+        };
+
+        document.querySelectorAll(".gallery-grid img").forEach((img) => {
+          img.addEventListener("click", () => {
+            galleryModalImage.src = img.src;
+            galleryModalImage.alt = img.alt || "Gallery photo";
+            toggleGalleryModal(true);
+          });
+        });
+
+        galleryModalClose.addEventListener("click", () =>
+          toggleGalleryModal(false)
+        );
+
+        galleryModal.addEventListener("click", (event) => {
+          if (event.target === galleryModal) {
+            toggleGalleryModal(false);
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && galleryModal.classList.contains("open")) {
+            toggleGalleryModal(false);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
