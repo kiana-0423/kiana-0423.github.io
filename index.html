@@ -11,10 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/shared.css" />
+    <link rel="stylesheet" href="styles/home.css" />
   </head>
   <body>
     <main>
@@ -107,7 +108,14 @@
           <article class="ticker-card">
             <h4>灵感</h4>
             <p>
-              按下快门，用世界进行配色。
+              Agent 开发，自动化计算模拟！
+            </p>
+          </article>
+          <article class="ticker-card">
+            <h4>长期主义</h4>
+            <p>
+              小游戏制作！
+              欢迎加入Flashbang！
             </p>
           </article>
           <article class="ticker-card">
@@ -140,101 +148,10 @@
       </div>
       <footer>
         <span id="quote">今天也要保持好奇。</span>
-        <span>© <span id="year"></span> Kiana</span>
+        <span>© <span data-current-year></span> Kiana</span>
       </footer>
     </main>
-
-    <script>
-      const text = document.getElementById("typewriter").dataset.text;
-      let idx = 0;
-      function type() {
-        const el = document.getElementById("typewriter");
-        el.textContent = text.slice(0, idx);
-        idx = idx === text.length ? 0 : idx + 1;
-      }
-      setInterval(type, 80);
-
-      const clockEl = document.getElementById("clock");
-      function tick() {
-        const now = new Date();
-        clockEl.textContent = now.toLocaleTimeString("zh-CN", {
-          hour12: false,
-        });
-      }
-      tick();
-      setInterval(tick, 1000);
-
-      const quotes = [
-        "我会把这个不完美的故事，变成我们期望的样子。 ——琪亚娜·卡斯兰娜",
-        "世界是不美好，所以美好才是人们心中的渴望。 ——琪亚娜·卡斯兰娜",
-        "我们不需要救世主，我们自己来拯救自己。 ——琪亚娜·卡斯兰娜",
-        "它会烧尽漆黑的天空，让光照向更远的地方！这就是我和大家的回家的路！ ——琪亚娜·卡斯兰娜",
-        "鸟为什么会飞？因为它们必须飞向天际。 ——凯文·卡斯兰娜",
-      ];
-      document.getElementById("quote").textContent =
-        quotes[Math.floor(Math.random() * quotes.length)];
-
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      const galleryModal = document.getElementById("galleryModal");
-      const galleryModalImage = document.getElementById("galleryModalImage");
-      const galleryModalClose = document.getElementById("galleryModalClose");
-      if (galleryModal && galleryModalImage && galleryModalClose) {
-        const toggleGalleryModal = (isOpen) => {
-          galleryModal.classList.toggle("open", isOpen);
-          galleryModal.setAttribute("aria-hidden", String(!isOpen));
-          if (!isOpen) {
-            galleryModalImage.removeAttribute("src");
-            galleryModalImage.removeAttribute("alt");
-          }
-        };
-
-        document.querySelectorAll(".gallery-grid img").forEach((img) => {
-          img.addEventListener("click", () => {
-            galleryModalImage.src = img.src;
-            galleryModalImage.alt = img.alt || "Gallery photo";
-            toggleGalleryModal(true);
-          });
-        });
-
-        galleryModalClose.addEventListener("click", () =>
-          toggleGalleryModal(false)
-        );
-
-        galleryModal.addEventListener("click", (event) => {
-          if (event.target === galleryModal) {
-            toggleGalleryModal(false);
-          }
-        });
-
-        document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape" && galleryModal.classList.contains("open")) {
-            toggleGalleryModal(false);
-          }
-        });
-      }
-
-      const visitorCountEl = document.getElementById("visitorCount");
-      if (visitorCountEl && window.fetch) {
-        const counterEndpoint =
-          "https://api.countapi.xyz/hit/kiana-homepage/visits";
-        fetch(counterEndpoint)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Failed to retrieve visitor count");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            const value = Number(data.value ?? data.count);
-            visitorCountEl.textContent = Number.isFinite(value)
-              ? value.toLocaleString("zh-CN")
-              : "—";
-          })
-          .catch(() => {
-            visitorCountEl.textContent = "—";
-          });
-      }
-    </script>
+    <script src="scripts/shared.js" defer></script>
+    <script src="scripts/home.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashbang Studio</title>
+    <meta
+      name="description"
+      content="Flashbang Studio 游戏工作室主页，展示游戏简介、开发日志与加入我们。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/shared.css" />
+    <link rel="stylesheet" href="styles/flashbang.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">FB</div>
+          <div class="brand-copy">
+            <strong>Flashbang Studio</strong>
+            <span>Playable Worlds, Built Loud</span>
+          </div>
+        </div>
+        <nav aria-label="页面导航">
+          <a href="#game-intro">游戏简介</a>
+          <a href="#devlog">开发日志</a>
+          <a href="#join-us">加入我们</a>
+        </nav>
+      </header>
+
+      <section class="hero" aria-label="工作室介绍">
+        <div class="hero-copy">
+          <p class="eyebrow">Indie Studio Based In Motion</p>
+          <h1>Flashbang Studio</h1>
+          <p class="lead">
+            我们正在制作一款强调“光、噪声、空间压迫感”的科幻动作潜入游戏，把高强度战斗、环境叙事与强节奏反馈压缩进每一次遭遇。
+          </p>
+          <p class="sublead">
+            这里不是传统作品陈列页，而是一个持续变化的制作现场。你可以在同一个入口里读到当前游戏方向、最近开发推进，以及团队正在寻找什么样的人。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#game-intro">查看游戏简介</a>
+            <a class="button secondary" href="#devlog">阅读开发日志</a>
+            <a class="button secondary" href="#join-us">加入工作室</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <span class="stat-number">01</span>
+              <span>首发项目进入垂直切片阶段</span>
+            </div>
+            <div class="metric">
+              <span class="stat-number">12+</span>
+              <span>核心机制原型已经验证</span>
+            </div>
+            <div class="metric">
+              <span class="stat-number">2026</span>
+              <span>目标完成对外首轮公开演示</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-aside">
+          <div class="signal-card">
+            <span class="section-tag">Current Project</span>
+            <h2>《Afterflash / 余闪》</h2>
+            <p>
+              一座停电后的垂直都市，一支临时拼凑的渗透小队。你必须在光源稀缺、通信破碎的条件下完成潜入、撤离与真相回收。
+            </p>
+          </div>
+
+          <div class="signal-points">
+            <article class="mini-card">
+              <strong>核心体验</strong>
+              <p>动作潜入 / 即时决策 / 高反馈灯光战斗</p>
+            </article>
+            <article class="mini-card">
+              <strong>平台计划</strong>
+              <p>PC 首发，后续评估主机平台适配</p>
+            </article>
+            <article class="mini-card">
+              <strong>当前目标</strong>
+              <p>完成一段 15 分钟可完整游玩的垂直切片</p>
+            </article>
+            <article class="mini-card">
+              <strong>制作重点</strong>
+              <p>战斗节奏、视线博弈、声音与空间导航</p>
+            </article>
+          </div>
+
+          <div class="status-strip" aria-label="项目状态">
+            <span class="status-chip">Vertical Slice</span>
+            <span class="status-chip">Narrative Pass</span>
+            <span class="status-chip">Combat Tuning</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="tabs-shell" aria-label="工作室内容界面">
+        <div class="tabs-header" role="tablist" aria-label="界面切换">
+          <button
+            class="studio-tab"
+            id="tab-game-intro"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="game-intro"
+            data-panel-target="game-intro"
+          >
+            <span class="tab-index">01</span>
+            <span class="tab-title">游戏简介</span>
+            <span class="tab-copy">项目定位、世界观、核心玩法与当前展示内容。</span>
+          </button>
+          <button
+            class="studio-tab"
+            id="tab-devlog"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="devlog"
+            data-panel-target="devlog"
+          >
+            <span class="tab-index">02</span>
+            <span class="tab-title">开发日志</span>
+            <span class="tab-copy">近阶段迭代、里程碑推进以及制作重点追踪。</span>
+          </button>
+          <button
+            class="studio-tab"
+            id="tab-join-us"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="join-us"
+            data-panel-target="join-us"
+          >
+            <span class="tab-index">03</span>
+            <span class="tab-title">加入我们</span>
+            <span class="tab-copy">正在开放的岗位、合作方式、工作节奏与联系入口。</span>
+          </button>
+        </div>
+
+        <div class="panels">
+          <section
+            class="panel is-active"
+            id="game-intro"
+            role="tabpanel"
+            aria-labelledby="tab-game-intro"
+            data-panel
+          >
+            <div class="panel-head">
+              <div>
+                <span class="section-tag">Game Overview</span>
+                <h3>游戏简介</h3>
+                <p>
+                  《Afterflash / 余闪》是一款第三人称科幻动作潜入游戏，围绕“失去稳定光源后，城市如何被重新定义”展开。玩家通过主动制造闪光、噪声与短时混乱，在危险区域中打出属于自己的通路。
+                </p>
+              </div>
+            </div>
+
+            <div class="panel-grid">
+              <article class="story-card">
+                <div>
+                  <span class="world-label">World Setup</span>
+                  <h4>故事与氛围</h4>
+                  <p>
+                    在一次大规模轨道事故后，城市供能系统持续崩坏。失控的安保网络将黑暗区域视为“异常”，而幸存者开始把灯光本身当成一种危险信号。你所在的小队需要潜入这些被切断的高层街区，寻找消失的数据与人。
+                  </p>
+                </div>
+                <div class="story-metadata">
+                  <span>近未来都市</span>
+                  <span>动作潜入</span>
+                  <span>环境叙事</span>
+                  <span>高密度遭遇战</span>
+                </div>
+              </article>
+
+              <div class="feature-stack">
+                <article class="feature-card">
+                  <strong>光源博弈</strong>
+                  <p>闪光弹、故障灯、临时电路会直接改变敌我视野和移动路线。</p>
+                </article>
+                <article class="feature-card">
+                  <strong>声音导航</strong>
+                  <p>脚步、设备电流与环境警报不仅是氛围，也会改变敌人巡逻逻辑。</p>
+                </article>
+                <article class="feature-card">
+                  <strong>多路径推进</strong>
+                  <p>正面破阵、绕行潜入、短时爆发撤离，都能构成有效解法。</p>
+                </article>
+                <article class="feature-card">
+                  <strong>短线叙事</strong>
+                  <p>每个关卡都保留独立主题与人物痕迹，避免剧情只存在于文档里。</p>
+                </article>
+              </div>
+
+              <div class="wide-row">
+                <article class="snapshot">
+                  <span>Combat Loop</span>
+                  <strong>侦察 → 造势 → 破口 → 脱离</strong>
+                  <p>战斗不是“进入房间然后清场”，而是围绕信息差与短时窗口展开。</p>
+                </article>
+                <article class="snapshot">
+                  <span>Playable Slice</span>
+                  <strong>15 分钟垂直切片</strong>
+                  <p>包含一段外墙潜入、两次巡逻交错遭遇，以及一次小队撤离选择。</p>
+                </article>
+                <article class="snapshot">
+                  <span>Target Feeling</span>
+                  <strong>紧张、明快、压迫但不迟钝</strong>
+                  <p>我们追求的是高响应速度，而不是笨重的“写实迟滞”。</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="panel"
+            id="devlog"
+            role="tabpanel"
+            aria-labelledby="tab-devlog"
+            data-panel
+            hidden
+          >
+            <div class="panel-head">
+              <div>
+                <span class="section-tag">Dev Log</span>
+                <h3>开发日志</h3>
+                <p>
+                  这里记录最近几轮版本推进，而不是泛泛而谈的“正在努力中”。我们更关心哪些机制已经成立，哪些问题仍然没有解决，以及下一轮迭代会砍掉什么、保留什么。
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-layout">
+              <div class="timeline-list">
+                <article class="timeline-card">
+                  <span class="timeline-date">2026.04 / Sprint 07</span>
+                  <h4>遭遇战节奏重构</h4>
+                  <p>
+                    将原本偏脚本驱动的房间战斗改成更依赖视野中断与短时失明反馈的动态遭遇。闪光后敌方恢复逻辑被重新拆分，读秒感更清晰。
+                  </p>
+                  <ul>
+                    <li>调整了闪光弹命中后的 AI 失衡时长与音效层级。</li>
+                    <li>重做一段废弃中继站关卡，使逃离路线更立体。</li>
+                    <li>加入危险提示色，避免纯黑环境下信息过载。</li>
+                  </ul>
+                </article>
+
+                <article class="timeline-card">
+                  <span class="timeline-date">2026.03 / Sprint 06</span>
+                  <h4>垂直切片首次串通</h4>
+                  <p>
+                    首个完整流程从屋顶切入、穿越中庭再到地铁撤离已经可以连通游玩。虽然美术与剧情触发仍然粗糙，但节奏闭环初步成立。
+                  </p>
+                  <ul>
+                    <li>完成主循环的临时 UI 与任务提示。</li>
+                    <li>加入两种敌方职业，观察型与追击型行为差异更明显。</li>
+                    <li>把部分叙事文本改为场景内的可见证据与通讯记录。</li>
+                  </ul>
+                </article>
+
+                <article class="timeline-card">
+                  <span class="timeline-date">2026.01 / Prototype</span>
+                  <h4>核心原型验证</h4>
+                  <p>
+                    这一阶段只回答一个问题：在第三人称视角下，闪光是否能成为真正的主动玩法，而不是一次性控制技能。结果是肯定的，但实现成本远高于预估。
+                  </p>
+                  <ul>
+                    <li>验证闪光、阴影、声音三者叠加的风险收益关系。</li>
+                    <li>推翻第一版慢节奏潜行方案，转向更高压的动作潜入结构。</li>
+                    <li>明确项目关键词：明灭、失真、压迫、反打。</li>
+                  </ul>
+                </article>
+              </div>
+
+              <div class="focus-board">
+                <article class="focus-card">
+                  <span class="section-tag">Now</span>
+                  <h4>本周重点</h4>
+                  <p>把关卡内的“可见路径”与“最优路径”彻底分离，让玩家更愿意冒险试错。</p>
+                  <strong>03 项</strong>
+                </article>
+                <article class="focus-card">
+                  <span class="section-tag">Risk</span>
+                  <h4>当前风险</h4>
+                  <p>如果环境提示过弱，战斗会变成纯反应测试；如果提示过强，又会削弱黑暗空间的张力。</p>
+                </article>
+                <article class="focus-card">
+                  <span class="section-tag">Pipeline</span>
+                  <h4>制作管线</h4>
+                  <p>设计原型优先，场景验证第二，美术定调第三。任何不能提升节奏判断的效果先暂缓。</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="panel"
+            id="join-us"
+            role="tabpanel"
+            aria-labelledby="tab-join-us"
+            data-panel
+            hidden
+          >
+            <div class="panel-head">
+              <div>
+                <span class="section-tag">Join Us</span>
+                <h3>加入我们</h3>
+                <p>
+                  Flashbang 需要的是对“可玩性”有判断力的人，而不是只会堆功能的人。我们欢迎全职、远程协作、短期合作与外部 contributor，只要你能拿作品或过程证明自己。
+                </p>
+              </div>
+            </div>
+
+            <div class="join-layout">
+              <div class="join-grid-main">
+                <article class="role-card">
+                  <span class="role-meta">Open Role</span>
+                  <h4 class="role-title">玩法程序</h4>
+                  <p>
+                    负责角色动作反馈、战斗状态机与关卡交互逻辑。你需要能和设计一起快速验证机制，而不是等规格冻结才开始写代码。
+                  </p>
+                  <ul>
+                    <li>擅长高频迭代，能接受原型阶段反复推翻。</li>
+                    <li>对动作手感、输入响应和镜头节奏有实际经验。</li>
+                    <li>愿意把“可调试性”当成第一优先级之一。</li>
+                  </ul>
+                  <div class="role-tags">
+                    <span>Gameplay</span>
+                    <span>Combat</span>
+                    <span>Rapid Prototyping</span>
+                  </div>
+                </article>
+
+                <article class="role-card">
+                  <span class="role-meta">Open Role</span>
+                  <h4 class="role-title">关卡与战斗设计</h4>
+                  <p>
+                    负责构建遭遇空间、敌人布置和玩家决策密度。你要能用布局塑造节奏，而不是仅仅生产地形。
+                  </p>
+                  <ul>
+                    <li>理解潜入、战斗与空间阅读之间的关系。</li>
+                    <li>能把纸面概念迅速变成可测试关卡。</li>
+                    <li>愿意通过删减内容让体验更锋利。</li>
+                  </ul>
+                  <div class="role-tags">
+                    <span>Level Design</span>
+                    <span>Encounter</span>
+                    <span>Pacing</span>
+                  </div>
+                </article>
+
+                <article class="culture-card">
+                  <span class="role-meta">How We Work</span>
+                  <h4>我们重视什么</h4>
+                  <ul>
+                    <li>先做出可玩的东西，再讨论如何把它做漂亮。</li>
+                    <li>任何意见都需要落到体验变化，而不是停留在审美口味。</li>
+                    <li>小团队默认信息透明，设计、程序、美术都能直接对同一个问题发言。</li>
+                  </ul>
+                </article>
+
+                <article class="process-card">
+                  <span class="process-step">Process</span>
+                  <h4>合作流程</h4>
+                  <ol>
+                    <li>发送你的作品、简历或一个能说明思考方式的项目链接。</li>
+                    <li>我们会给一段小型任务或具体问题，确认合作节奏是否匹配。</li>
+                    <li>如果合适，就从一个明确范围的模块开始协作。</li>
+                  </ol>
+                </article>
+              </div>
+
+              <div class="join-grid-side">
+                <article class="contact-card">
+                  <span class="section-tag">Contact</span>
+                  <h4>投递方式</h4>
+                  <p>
+                    邮件主题建议使用“应聘岗位 + 名字 + 城市 / 远程”，并附上最能代表你的作品链接。
+                  </p>
+                  <ul>
+                    <li>邮箱：<a href="mailto:hello@flashbang.studio">hello@flashbang.studio</a></li>
+                    <li>GitHub：<a href="https://github.com/kiana-0423" target="_blank" rel="noreferrer">kiana-0423</a></li>
+                    <li>回复周期：通常 3 到 5 个工作日</li>
+                  </ul>
+                </article>
+
+                <article class="focus-card">
+                  <span class="section-tag">Need To Know</span>
+                  <h4>适合加入的人</h4>
+                  <p>你不需要样样都会，但需要对自己的长板非常清楚，并且愿意把反馈转成可执行的改动。</p>
+                </article>
+
+                <article class="focus-card">
+                  <span class="section-tag">Team Shape</span>
+                  <h4>团队状态</h4>
+                  <p>目前维持小体量高密度协作，强调快速决策、快速验证、快速淘汰无效方案。</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <footer>
+        <span class="footer-note">Flashbang Studio</span>
+        <span>© <span data-current-year></span> Built for playable tension.</span>
+      </footer>
+    </div>
+    <script src="scripts/shared.js" defer></script>
+    <script src="scripts/flashbang.js" defer></script>
+  </body>
+</html>
