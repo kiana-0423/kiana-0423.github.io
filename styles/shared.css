@@ -24,6 +24,26 @@ select {
   font: inherit;
 }
 
+#live2d-canvas {
+  position: fixed;
+  right: 1rem;
+  top: 0.75rem;
+  width: min(420px, 34vw);
+  height: min(680px, 82vh);
+  background: transparent;
+  z-index: 900;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  #live2d-canvas {
+    right: 0.35rem;
+    top: 0.35rem;
+    width: min(280px, 52vw);
+    height: min(460px, 58vh);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
